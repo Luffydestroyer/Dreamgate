@@ -35,8 +35,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
 		
-		# Smooth movement
-		move_and_slide()
+	# Smooth movement
+	move_and_slide()
 
 func _play_walk_animation():
 	if velocity.y > 0:
