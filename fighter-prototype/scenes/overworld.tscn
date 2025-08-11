@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=4 uid="uid://dklo06ejty5sb"]
+
+[ext_resource type="PackedScene" uid="uid://cdp1e3sxutlte" path="res://scenes/overworld_player.tscn" id="1_m1b5j"]
+[ext_resource type="Script" uid="uid://cdfyycwjshrci" path="res://scripts/overworld.gd" id="1_qjxaj"]
+[ext_resource type="Texture2D" uid="uid://pb23wpc4hx4q" path="res://assets/sprites/grassland_tileset.png" id="2_16ktt"]
+[ext_resource type="Texture2D" uid="uid://dlywtvkqsn82m" path="res://assets/sprites/otherworld_overworld_npc_ph.png" id="3_356oe"]
+[ext_resource type="PackedScene" uid="uid://b0b4fb26p7j0q" path="res://scenes/dialogue_area.tscn" id="4_3gvrs"]
+[ext_resource type="PackedScene" uid="uid://js3n4w4w428d" path="res://scenes/overworld_enemy.tscn" id="7_fkyvp"]
+[ext_resource type="PackedScene" uid="uid://bgtv1ihw8kpf4" path="res://scenes/room_transition.tscn" id="7_qjxaj"]
+[ext_resource type="PackedScene" uid="uid://jvlxrdkgqf7h" path="res://scenes/overworld_room_2.tscn" id="8_qjxaj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e184d"]
+texture = ExtResource("2_16ktt")
+margins = Vector2i(1, 1)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_16ktt"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_e184d")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eab5i"]
+size = Vector2(38, 33)
+
+[node name="Overworld" type="Node"]
+script = ExtResource("1_qjxaj")
+
+[node name="overworld_player" parent="." instance=ExtResource("1_m1b5j")]
+position = Vector2(144, 214)
+
+[node name="Camera2D" type="Camera2D" parent="overworld_player"]
+zoom = Vector2(4, 4)
+
+[node name="Layer1" type="TileMapLayer" parent="."]
+z_index = -1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAACAAgAAAAAAAAAAAAGAAgAAAACAAAAAAADAAgAAAABAAAAAAAEAAgAAAABAAAAAAAFAAgAAAABAAAAAAABAAkAAAAAAAAAAAAHAAkAAAACAAAAAAACAAkAAAADAAAAAAADAAkAAAABAAEAAAAEAAkAAAABAAEAAAAFAAkAAAABAAEAAAAGAAkAAAAFAAAAAAABAAoAAAAAAAQAAAACAAsAAAAAAAQAAAAGAAsAAAACAAQAAAAHAAoAAAACAAQAAAADAAsAAAABAAIAAAAEAAsAAAABAAIAAAAFAAsAAAABAAIAAAACAAoAAAADAAIAAAADAAoAAAABAAEAAAAEAAoAAAABAAEAAAAFAAoAAAABAAEAAAAGAAoAAAAFAAIAAAAAAAUAAAAAAAIAAAABAAUAAAACAAIAAAABAAMAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAEAAAABAAQAAAACAAEAAAALAAQAAAACAAAAAAALAAkAAAACAAQAAAAHAAYAAAAAAAIAAAAHAAIAAAAAAAAAAAAJAAIAAAACAAAAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAIAAYAAAABAAIAAAAJAAYAAAABAAIAAAAKAAYAAAADAAIAAAAKAAcAAAAAAAMAAAAKAAgAAAAAAAMAAAAKAAkAAAAAAAQAAAALAAgAAAACAAMAAAALAAcAAAACAAMAAAALAAYAAAACAAEAAAALAAUAAAACAAEAAAAKAAQAAAAFAAAAAAAKAAMAAAACAAAAAAAJAAMAAAAFAAAAAAAIAAIAAAABAAAAAAAIAAMAAAABAAEAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAJAAUAAAABAAEAAAAKAAUAAAABAAEAAAAJAAQAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_16ktt")
+
+[node name="OtherworldOverworldNpcPh" type="Sprite2D" parent="."]
+position = Vector2(182, 97)
+texture = ExtResource("3_356oe")
+
+[node name="DialogueArea" parent="." instance=ExtResource("4_3gvrs")]
+position = Vector2(148, 109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+position = Vector2(34, -10.5)
+shape = SubResource("RectangleShape2D_eab5i")
+
+[node name="overworld_enemy" parent="." instance=ExtResource("7_fkyvp")]
+position = Vector2(107, 94)
+
+[node name="room_transition" parent="." instance=ExtResource("7_qjxaj")]
+position = Vector2(116, 166)
+next_room = ExtResource("8_qjxaj")
+next_pos_x = 8.0
+next_pos_y = 7.0
+
+[connection signal="body_entered" from="overworld_enemy" to="overworld_player" method="_on_overworld_enemy_body_entered"]
+[connection signal="body_entered" from="room_transition" to="overworld_player" method="_on_room_transition_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://js3n4w4w428d"]
+
+[ext_resource type="Script" uid="uid://cnl6n2ll4mdy6" path="res://scripts/overworld_enemy.gd" id="1_4ehk4"]
+[ext_resource type="Texture2D" uid="uid://dl3u72rp2tb1k" path="res://assets/sprites/otherworld_overworld_enemy_ph.png" id="1_45crs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ehk4"]
+size = Vector2(40, 38)
+
+[node name="overworld_enemy" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_4ehk4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_45crs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_4ehk4")

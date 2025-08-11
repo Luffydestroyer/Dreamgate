@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://vfytlswwyoc"]
+
+[ext_resource type="Script" uid="uid://cujfdivqmqbop" path="res://scripts/fighting_player.gd" id="1_suufq"]
+[ext_resource type="Texture2D" uid="uid://dlywtvkqsn82m" path="res://assets/sprites/otherworld_overworld_npc_ph.png" id="2_idc24"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idc24"]
+
+[node name="Fighting_Player" type="CharacterBody2D"]
+script = ExtResource("1_suufq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_idc24")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_idc24")
