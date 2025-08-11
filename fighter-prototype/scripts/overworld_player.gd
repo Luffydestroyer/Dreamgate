@@ -32,6 +32,8 @@ func _process(delta):
 			_play_walk_animation()
 		else:
 			_play_idle_animation()
+	if Input.is_action_just_pressed("esc"):
+		get_tree().quit()
 		
 		# Smooth movement
 		move_and_slide()

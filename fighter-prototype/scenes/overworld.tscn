@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dclisa32wd530" path="res://scripts/DialogueTextResource.gd" id="7_e184d"]
 [ext_resource type="PackedScene" uid="uid://js3n4w4w428d" path="res://scenes/overworld_enemy.tscn" id="7_fkyvp"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e184d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjxaj"]
 texture = ExtResource("2_16ktt")
 margins = Vector2i(1, 1)
 separation = Vector2i(1, 1)
@@ -70,7 +70,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_16ktt"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 2
-sources/0 = SubResource("TileSetAtlasSource_e184d")
+sources/0 = SubResource("TileSetAtlasSource_qjxaj")
 
 [sub_resource type="Resource" id="Resource_nesqq"]
 script = ExtResource("7_e184d")

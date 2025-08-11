@@ -127,7 +127,7 @@ animations = [{
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_c5ya8")
 }],
-"loop": false,
+"loop": true,
 "name": &"kick",
 "speed": 10.0
 }, {
@@ -141,7 +141,7 @@ animations = [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_4y4ip")
 }],
-"loop": false,
+"loop": true,
 "name": &"punch_basic",
 "speed": 10.0
 }, {
@@ -167,13 +167,12 @@ animations = [{
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_h0k0g")
 }],
-"loop": false,
+"loop": true,
 "name": &"punch_heavy",
 "speed": 10.0
 }]
 
 [node name="Fighting_Player" type="CharacterBody2D"]
-collision_mask = 2
 script = ExtResource("1_suufq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -182,6 +181,6 @@ shape = SubResource("RectangleShape2D_idc24")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1m1jw")
-animation = &"kick"
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+animation = &"punch_heavy"
+frame = 4
+frame_progress = 0.319578
