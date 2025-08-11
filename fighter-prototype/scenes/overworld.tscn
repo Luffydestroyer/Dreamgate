@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://dklo06ejty5sb"]
+[gd_scene load_steps=13 format=4 uid="uid://dklo06ejty5sb"]
 
 [ext_resource type="PackedScene" uid="uid://cdp1e3sxutlte" path="res://scenes/overworld_player.tscn" id="1_m1b5j"]
 [ext_resource type="Script" uid="uid://cdfyycwjshrci" path="res://scripts/overworld.gd" id="1_qjxaj"]
-[ext_resource type="Texture2D" uid="uid://pb23wpc4hx4q" path="res://assets/sprites/grassland_tileset.png" id="2_16ktt"]
-[ext_resource type="Texture2D" uid="uid://dlywtvkqsn82m" path="res://assets/sprites/otherworld_overworld_npc_ph.png" id="3_356oe"]
+[ext_resource type="Texture2D" uid="uid://pb23wpc4hx4q" path="res://assets/sprites/overworld_sprites/grassland_tileset.png" id="2_16ktt"]
+[ext_resource type="Texture2D" uid="uid://dlywtvkqsn82m" path="res://assets/sprites/overworld_sprites/otherworld_overworld_npc_ph.png" id="3_356oe"]
 [ext_resource type="PackedScene" uid="uid://b0b4fb26p7j0q" path="res://scenes/dialogue_area.tscn" id="4_3gvrs"]
+[ext_resource type="Script" uid="uid://ce4ihu5t6nbms" path="res://scripts/DialogueExportResource.gd" id="6_qjxaj"]
+[ext_resource type="Script" uid="uid://dclisa32wd530" path="res://scripts/DialogueTextResource.gd" id="7_e184d"]
 [ext_resource type="PackedScene" uid="uid://js3n4w4w428d" path="res://scenes/overworld_enemy.tscn" id="7_fkyvp"]
-[ext_resource type="PackedScene" uid="uid://bgtv1ihw8kpf4" path="res://scenes/room_transition.tscn" id="7_qjxaj"]
-[ext_resource type="PackedScene" uid="uid://jvlxrdkgqf7h" path="res://scenes/overworld_room_2.tscn" id="8_qjxaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e184d"]
 texture = ExtResource("2_16ktt")
@@ -72,6 +72,20 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_e184d")
 
+[sub_resource type="Resource" id="Resource_nesqq"]
+script = ExtResource("7_e184d")
+speaker_img = ExtResource("3_356oe")
+speaker_img_Hframes = 1
+speaker_img_rest_frame = 0
+text = "My qenis is big"
+text_speed = 17.8
+text_volume_db = 0
+text_volume_pitch_min = 0.85
+text_volume_pitch_max = 1.15
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://dclisa32wd530"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eab5i"]
 size = Vector2(38, 33)
 
@@ -96,19 +110,21 @@ texture = ExtResource("3_356oe")
 
 [node name="DialogueArea" parent="." instance=ExtResource("4_3gvrs")]
 position = Vector2(148, 109)
+dialogue = Array[ExtResource("6_qjxaj")]([SubResource("Resource_nesqq")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+position = Vector2(34, -10.5)
+shape = SubResource("RectangleShape2D_eab5i")
+
+[node name="DialogueArea2" parent="." instance=ExtResource("4_3gvrs")]
+position = Vector2(148, 109)
+dialogue = Array[ExtResource("6_qjxaj")]([SubResource("Resource_nesqq")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea2"]
 position = Vector2(34, -10.5)
 shape = SubResource("RectangleShape2D_eab5i")
 
 [node name="overworld_enemy" parent="." instance=ExtResource("7_fkyvp")]
 position = Vector2(107, 94)
 
-[node name="room_transition" parent="." instance=ExtResource("7_qjxaj")]
-position = Vector2(116, 166)
-next_room = ExtResource("8_qjxaj")
-next_pos_x = 8.0
-next_pos_y = 7.0
-
 [connection signal="body_entered" from="overworld_enemy" to="overworld_player" method="_on_overworld_enemy_body_entered"]
-[connection signal="body_entered" from="room_transition" to="overworld_player" method="_on_room_transition_body_entered"]

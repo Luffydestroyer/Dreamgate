@@ -52,6 +52,7 @@ func _activate_dialogue():
 		get_parent().add_child(new_dialogue)
 
 
+
 func _on_body_entered(body):
 	if only_activate_once and has_activated_already:
 		return

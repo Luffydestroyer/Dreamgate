@@ -2,8 +2,12 @@ extends Node2D
 
 const dialogue_button_preload = preload("res://scenes/dialogue_button.tscn")
 
-@onready var DialogueLabel: RichTextLabel = $HBoxContainer/VBoxContainer/RichTextLabel
+
 @onready var SpeakerSprite: Sprite2D = $HBoxContainer/Speaker/Sprite2D
+
+
+@onready var DialogueLabel: RichTextLabel = $HBoxContainer/VBoxContainer/RichTextLabel
+
 
 var dialogue: Array[DE]
 var current_dialogue_item: int = 0
@@ -28,7 +32,6 @@ func _process(_delta):
 		player_node.moving = true
 		queue_free()
 		return
-	
 	if next_item:
 		next_item = false
 		var i = dialogue[current_dialogue_item]
@@ -54,7 +57,7 @@ func _process(_delta):
 			next_item = true
 
 
-func _function_resource(i = DialogueFunction):
+func _function_resource(i: DialogueFunction):
 	var target_node = get_node(i.target_path)
 	if target_node.has_method(i.function_name):
 		if i.function_arguments.size() == 0:
@@ -74,7 +77,7 @@ func _function_resource(i = DialogueFunction):
 	current_dialogue_item += 1
 	next_item = true
 
-func _choice_resource(i = DialogueChoice):
+func _choice_resource(i: DialogueChoice):
 	DialogueLabel.text = i.text 
 	DialogueLabel.visible_characters = -1
 	if i.speaker_img:
@@ -108,7 +111,7 @@ func _choice_resource(i = DialogueChoice):
 		$"HBoxContainer/VBoxContainer/Button-Hoarder".get_child(0).grab_focus()
 
 
-func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: Signal):
+func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: String):
 	$"HBoxContainer/VBoxContainer/Button-Hoarder".visible = false
 	for i in $"HBoxContainer/VBoxContainer/Button-Hoarder".get_children():
 		i.queue_free()
@@ -129,7 +132,7 @@ func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: Sign
 	next_item = true
 
 
-func _text_resource(i = DialogueText):
+func _text_resource(i: DialogueText):
 	$AudioStreamPlayer2D.stream = i.text_sound
 	$AudioStreamPlayer2D.volume_db = i.text_volume_db
 	var camera: Camera2D = get_viewport().get_camera_2d()
@@ -142,10 +145,11 @@ func _text_resource(i = DialogueText):
 	else:
 		$HBoxContainer/Speaker.visible = true
 		SpeakerSprite.texture = i.speaker_img
-		SpeakerSprite.hfrrames = i.speaker_img.Hframes
+		SpeakerSprite.hframes = i.speaker_img_Hframes
 		SpeakerSprite.frame = 0
 	
 	DialogueLabel.visible_characters = 0
+	print("Displaying dialogue text:", i.text)
 	DialogueLabel.text = i.text
 	
 	var text_without_square_brackets: String = _text_without_square_brackets(i.text)
@@ -171,7 +175,7 @@ func _text_resource(i = DialogueText):
 			character_timer = 0.0
 		
 		await get_tree().process_frame
-	SpeakerSprite.frame = min(i.speaker_img_rest_frame, i.speaker_img_HFrames-1)
+	SpeakerSprite.frame = min(i.speaker_img_rest_frame, i.speaker_img_Hframes - 1)
 	while true:
 		await get_tree().process_frame
 		if DialogueLabel.visible_characters == total_characters:

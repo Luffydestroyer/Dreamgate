@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlywtvkqsn82m"
-path="res://.godot/imported/otherworld_overworld_npc_ph.png-9d993582617da0182a8a5a38b17ef704.ctex"
+uid="uid://cnrhl35j4crxs"
+path="res://.godot/imported/Punch-Heavy-Sheet.png-6942f37f3f49e1f5211378bd870c5b6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/otherworld_overworld_npc_ph.png"
-dest_files=["res://.godot/imported/otherworld_overworld_npc_ph.png-9d993582617da0182a8a5a38b17ef704.ctex"]
+source_file="res://assets/sprites/battle_sprites/placeholder_fighter/Punch-Heavy-Sheet.png"
+dest_files=["res://.godot/imported/Punch-Heavy-Sheet.png-6942f37f3f49e1f5211378bd870c5b6b.ctex"]
 
 [params]
 

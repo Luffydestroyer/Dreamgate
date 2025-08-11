@@ -9,12 +9,13 @@ var momentum
 var weight
 var hitbox
 
+@onready var anim = $AnimatedSprite2D
 
 @export var fighter: String = "Ren"
 
 
 func _ready():
-	pass
+	anim.play("idle")
 
 func _process(delta):
 	pass

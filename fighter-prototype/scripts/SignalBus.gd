@@ -1,4 +1,2 @@
 extends Node
 signal fighting_time
-signal new_room
-signal room_transition_signal

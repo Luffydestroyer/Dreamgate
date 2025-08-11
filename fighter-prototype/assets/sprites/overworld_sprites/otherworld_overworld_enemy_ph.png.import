@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pb23wpc4hx4q"
-path="res://.godot/imported/grassland_tileset.png-0755bae9feeb6b5ae47cd4d60a13ee19.ctex"
+uid="uid://dl3u72rp2tb1k"
+path="res://.godot/imported/otherworld_overworld_enemy_ph.png-8107b3a358ecbb4aa3724900b95a20ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/grassland_tileset.png"
-dest_files=["res://.godot/imported/grassland_tileset.png-0755bae9feeb6b5ae47cd4d60a13ee19.ctex"]
+source_file="res://assets/sprites/overworld_sprites/otherworld_overworld_enemy_ph.png"
+dest_files=["res://.godot/imported/otherworld_overworld_enemy_ph.png-8107b3a358ecbb4aa3724900b95a20ce.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mxsjxnavj3xa"
-path="res://.godot/imported/Unarmed_Idle_full.png-8c6902de974f49ff9b0b9356f4e7e535.ctex"
+uid="uid://dlywtvkqsn82m"
+path="res://.godot/imported/otherworld_overworld_npc_ph.png-fa592ee99bcfd579ed83409fb693d0b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Unarmed_Idle_full.png"
-dest_files=["res://.godot/imported/Unarmed_Idle_full.png-8c6902de974f49ff9b0b9356f4e7e535.ctex"]
+source_file="res://assets/sprites/overworld_sprites/otherworld_overworld_npc_ph.png"
+dest_files=["res://.godot/imported/otherworld_overworld_npc_ph.png-fa592ee99bcfd579ed83409fb693d0b5.ctex"]
 
 [params]
 

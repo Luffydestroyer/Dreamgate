@@ -52,11 +52,3 @@ func _play_idle_animation():
 
 func _on_overworld_enemy_body_entered(body):
 	SignalBus.fighting_time.emit()
-
-func _do_transition():
-	hitbox.disabled = true
-	SignalBus.new_room.emit()
-	hitbox.disabled = false
-
-func _on_room_transition_body_entered(body):
-	_do_transition.call_deferred()

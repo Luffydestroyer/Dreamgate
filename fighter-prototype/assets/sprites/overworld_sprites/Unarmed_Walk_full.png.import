@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl3u72rp2tb1k"
-path="res://.godot/imported/otherworld_overworld_enemy_ph.png-43bf1cc3d166f44c09dcab3c7c915857.ctex"
+uid="uid://c11scwl53jtjp"
+path="res://.godot/imported/Unarmed_Walk_full.png-181a188214a60d2ec66137cdf82a6706.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/otherworld_overworld_enemy_ph.png"
-dest_files=["res://.godot/imported/otherworld_overworld_enemy_ph.png-43bf1cc3d166f44c09dcab3c7c915857.ctex"]
+source_file="res://assets/sprites/overworld_sprites/Unarmed_Walk_full.png"
+dest_files=["res://.godot/imported/Unarmed_Walk_full.png-181a188214a60d2ec66137cdf82a6706.ctex"]
 
 [params]
 

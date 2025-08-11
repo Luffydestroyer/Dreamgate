@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c11scwl53jtjp"
-path="res://.godot/imported/Unarmed_Walk_full.png-c965603a472ba4ec2d2c54ce7c490b0a.ctex"
+uid="uid://dje73ma1lrb5v"
+path="res://.godot/imported/Kick-Sheet.png-e4e64d1cd23359a918ddd977aa7eb8c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Unarmed_Walk_full.png"
-dest_files=["res://.godot/imported/Unarmed_Walk_full.png-c965603a472ba4ec2d2c54ce7c490b0a.ctex"]
+source_file="res://assets/sprites/battle_sprites/placeholder_fighter/Kick-Sheet.png"
+dest_files=["res://.godot/imported/Kick-Sheet.png-e4e64d1cd23359a918ddd977aa7eb8c4.ctex"]
 
 [params]
 

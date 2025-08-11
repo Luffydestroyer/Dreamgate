@@ -5,4 +5,6 @@
 [node name="Battle_scene" type="Node2D"]
 
 [node name="Fighting_Player" parent="." instance=ExtResource("1_idkgt")]
-position = Vector2(285, 149)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
