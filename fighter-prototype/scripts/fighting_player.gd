@@ -25,6 +25,7 @@ func _ready():
 func _process(delta):
 	PPH.x = self.position.x
 	PPH.y = self.position.y
+	PPH.airborne = airborne
 	if not is_on_floor():
 		velocity += get_gravity() * (delta)
 		airborne = true

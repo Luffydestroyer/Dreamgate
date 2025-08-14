@@ -4,11 +4,11 @@ class_name Bubble
 signal option_selected(value)
 
 # Node references
-var main: AnimatedSprite2D
-var mid: AnimatedSprite2D
-var bottom: AnimatedSprite2D
-var option_icon: Sprite2D
-var collision_shape: CollisionShape2D
+@onready var main: AnimatedSprite2D = $Main
+@onready var mid: AnimatedSprite2D = $Mid
+@onready var bottom: AnimatedSprite2D = $Bottom
+@onready var option_icon: Sprite2D = $Main/OptionIcon
+@onready var collision_shape: CollisionShape2D = $Main/Area2D/CollisionShape2D
 
 # Configuration
 const MID_OFFSET := Vector2(-15, 8)
@@ -24,41 +24,26 @@ var end_pos: Vector2
 var icon_texture: Texture2D
 var is_visible := false
 var float_timer := 0.0
-var is_ready := false
-
-func _ready():
-	# Get references to nodes
-	main = $Main
-	mid = $Mid
-	bottom = $Bottom
-	option_icon = $Main/OptionIcon
-	collision_shape = $Main/Area2D/CollisionShape2D
-	
-	# Apply initialization if we have data
-	if start_pos != Vector2.ZERO and end_pos != Vector2.ZERO:
-		update_positions()
-	if icon_texture:
-		option_icon.texture = icon_texture
-	
-	# Set initial state
-	scale = Vector2(0.1, 0.1)
-	modulate.a = 0
-	collision_shape.disabled = true
-	
-	is_ready = true
 
 func initialize(p_start_pos: Vector2, p_end_pos: Vector2, p_icon_texture: Texture2D, value: Variant):
-	print("Initializing bubble at: ", p_start_pos, " to ", p_end_pos)
 	start_pos = p_start_pos
 	end_pos = p_end_pos
 	icon_texture = p_icon_texture
 	option_value = value
 	
-	# If already in the scene tree, set up immediately
-	if is_inside_tree():
-		update_positions()
-		if option_icon:
-			option_icon.texture = icon_texture
+	# Ensure nodes are ready before accessing them
+	if not is_inside_tree():
+		await ready
+	
+	option_icon.texture = icon_texture
+	update_positions()
+	
+	# Set initial state for animation
+	main.scale = Vector2(0.1, 0.1)
+	mid.scale = Vector2(0.1, 0.1)
+	bottom.scale = Vector2(0.1, 0.1)
+	modulate.a = 0
+	collision_shape.disabled = true
 
 func update_positions():
 	# Calculate midpoint
@@ -69,39 +54,36 @@ func update_positions():
 	mid.position = mid_point + MID_OFFSET
 	main.position = end_pos
 
-func set_start_position(new_pos: Vector2):
-	start_pos = new_pos
-	if is_ready:
-		update_positions()
-
-func set_end_position(new_pos: Vector2):
-	end_pos = new_pos
-	if is_ready:
-		update_positions()
-
 func show_bubble():
-	if is_visible or !is_ready: 
+	if is_visible: 
 		return
+		
 	is_visible = true
+	
+	# Ensure nodes are ready
+	if not main or not mid or not bottom:
+		return
+	
+	# Reset scales
+	main.scale = Vector2(0.1, 0.1)
+	mid.scale = Vector2(0.1, 0.1)
+	bottom.scale = Vector2(0.1, 0.1)
 	
 	# Animation sequence: bottom -> mid -> main
 	var tween = create_tween().set_parallel(false)
 	
 	# Bottom bubble
-	tween.tween_property(bottom, "scale", Vector2(1, 1), ANIM_DURATION * 0.3)\
-		.from(Vector2(0.1, 0.1))\
+	tween.tween_property(bottom, "scale", Vector2(2, 2), ANIM_DURATION * 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_BACK)
 	
 	# Mid bubble
-	tween.tween_property(mid, "scale", Vector2(1, 1), ANIM_DURATION * 0.4)\
-		.from(Vector2(0.1, 0.1))\
+	tween.tween_property(mid, "scale", Vector2(2, 2), ANIM_DURATION * 0.4)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_BACK)
 	
 	# Main bubble with icon
-	tween.tween_property(main, "scale", Vector2(1, 1), ANIM_DURATION * 0.5)\
-		.from(Vector2(0.1, 0.1))\
+	tween.tween_property(main, "scale", Vector2(2, 2), ANIM_DURATION * 0.5)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_BACK)
 	
@@ -115,8 +97,9 @@ func show_bubble():
 	)
 
 func hide_bubble():
-	if !is_visible or !is_ready: 
+	if !is_visible: 
 		return
+		
 	is_visible = false
 	collision_shape.disabled = true
 	
@@ -139,7 +122,7 @@ func hide_bubble():
 	tween.tween_property(self, "modulate:a", 0.0, ANIM_DURATION)
 
 func _process(delta):
-	if !is_visible or !is_ready: 
+	if !is_visible: 
 		return
 	
 	# Update floating animation

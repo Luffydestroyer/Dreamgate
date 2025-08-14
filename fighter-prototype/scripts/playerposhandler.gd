@@ -2,6 +2,7 @@ extends Node
 
 var x:int
 var y:int
+var airborne:bool
 
 func get_x():
 	return x
