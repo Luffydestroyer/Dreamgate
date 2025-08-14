@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://vfytlswwyoc"]
+[gd_scene load_steps=26 format=3 uid="uid://vfytlswwyoc"]
 
 [ext_resource type="Script" uid="uid://cujfdivqmqbop" path="res://scripts/fighting_player.gd" id="1_suufq"]
 [ext_resource type="Texture2D" uid="uid://djsi7ii0c6ptw" path="res://assets/sprites/battle_sprites/placeholder_fighter/Idle-Sheet.png" id="2_idc24"]
@@ -24,10 +24,6 @@ region = Rect2(56, 0, 28, 34)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yasrr"]
 atlas = ExtResource("2_idc24")
 region = Rect2(84, 0, 28, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pbck8"]
-atlas = ExtResource("4_b72go")
-region = Rect2(0, 0, 38, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnw6l"]
 atlas = ExtResource("4_b72go")
@@ -60,10 +56,6 @@ region = Rect2(38, 0, 38, 34)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4y4ip"]
 atlas = ExtResource("3_g4u8t")
 region = Rect2(76, 0, 38, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qldse"]
-atlas = ExtResource("4_16xs5")
-region = Rect2(0, 0, 53, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkdep"]
 atlas = ExtResource("4_16xs5")
@@ -110,9 +102,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pbck8")
-}, {
-"duration": 2.0,
 "texture": SubResource("AtlasTexture_wnw6l")
 }, {
 "duration": 1.0,
@@ -147,9 +136,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qldse")
-}, {
-"duration": 2.0,
 "texture": SubResource("AtlasTexture_dkdep")
 }, {
 "duration": 1.0,
@@ -182,6 +168,7 @@ shape = SubResource("RectangleShape2D_idc24")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1m1jw")
-animation = &"kick"
+animation = &"punch_heavy"
+frame_progress = 0.990604
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

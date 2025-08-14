@@ -10,6 +10,7 @@ var weight
 var hitbox
 var airborne: bool
 
+var PPH = preload("res://scripts/playerposhandler.gd").new()
 
 @onready var anim = $AnimatedSprite2D
 
@@ -18,9 +19,12 @@ var airborne: bool
 
 func _ready():
 	anim.play("idle")
+	PPH = get_node("/root/PPH")
 
 
 func _process(delta):
+	PPH.x = self.position.x
+	PPH.y = self.position.y
 	if not is_on_floor():
 		velocity += get_gravity() * (delta)
 		airborne = true
@@ -44,6 +48,11 @@ func _process(delta):
 func _set_player():
 	pass
 
+func get_x():
+	return self.position.x
+
+func get_y():
+	return self.position.y
 
 func _on_animated_sprite_2d_animation_finished():
 	if anim.animation != "idle":
