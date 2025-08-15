@@ -16,8 +16,8 @@ func create_action_bubble(action_type: String, icon_texture: Texture2D):
 	var player_pos = Vector2(PPH.x, PPH.y) if PPH else Vector2.ZERO
 	print_debug(PPH.x, PPH.y)
 	# Set positions - adjust these values as needed
-	var start_pos = Vector2(500, 400) 
-	var end_pos = Vector2(500, 500)  
+	var start_pos = Vector2(490, 370) 
+	var end_pos = Vector2(497, 365)  
 	
 	bubble.initialize(start_pos, end_pos, icon_texture, action_type)
 	add_child(bubble)
