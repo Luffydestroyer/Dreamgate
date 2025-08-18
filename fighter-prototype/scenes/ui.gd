@@ -4,10 +4,20 @@ extends CanvasLayer
 var bubble_scene = preload("res://scenes/bubble.tscn")
 var done:bool = false
 
+@onready var action_menu = $ActionMenu
+@onready var health_bar: TextureProgressBar = $HealthBar
+@onready var bp_bar: TextureProgressBar = $BPBar
+@onready var momentum_bar: TextureProgressBar = $MomentumBar
+
+func init_ui(player):
+	health_bar.set_value_no_signal(player.max_hp)
+	bp_bar.set_value_no_signal(player.max_bp)
+	momentum_bar
+
 func _process(delta):
 	# Create bubbles when needed
 	if !PPH.airborne and !done:
-		create_action_bubble("fight", preload("res://assets/sprites/ui/placeholdertext.png"))
+		create_action_bubble("fight", preload("res://assets/sprites/ui/Fight_Text.png"))
 		done = true
 
 func create_action_bubble(action_type: String, icon_texture: Texture2D):
@@ -28,3 +38,17 @@ func create_action_bubble(action_type: String, icon_texture: Texture2D):
 
 func _on_bubble_selected(value):
 	print("Selected option: ", value)
+
+func show_action_menu():
+	action_menu.show_menu()
+
+func update_bars(player):
+	health_bar.update(player.hp)
+	bp_bar.update(player.bp)
+	momentum_bar.update(player.momentum)
+
+func _on_action_selected(action_type, action_data):
+	get_parent().add_player_action(action_type, action_data)
+
+func _on_construct_pressed():
+	get_parent().build_wheel.open()
