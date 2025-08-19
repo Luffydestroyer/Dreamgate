@@ -5,9 +5,9 @@ var bubble_scene = preload("res://scenes/bubble.tscn")
 var done:bool = false
 
 @onready var action_menu = $ActionMenu
-@onready var health_bar: TextureProgressBar = $HealthBar
-@onready var bp_bar: TextureProgressBar = $BPBar
-@onready var momentum_bar: TextureProgressBar = $MomentumBar
+@onready var health_bar = $HealthBar
+@onready var bp_bar = $BPBar
+@onready var momentum_bar = $MomentumBar
 
 func init_ui(player):
 	health_bar.set_value_no_signal(player.max_hp)

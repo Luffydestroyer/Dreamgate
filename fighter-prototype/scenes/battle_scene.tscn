@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://cdv22yx627o5c" path="res://scripts/BattleManager.gd" id="1_1i8jf"]
 [ext_resource type="PackedScene" uid="uid://vfytlswwyoc" path="res://scenes/fighting_player.tscn" id="1_idkgt"]
 [ext_resource type="Texture2D" uid="uid://pb23wpc4hx4q" path="res://assets/sprites/overworld_sprites/grassland_tileset.png" id="2_kinr6"]
-[ext_resource type="Script" uid="uid://cvf7oxp5rtlx8" path="res://scenes/ui.gd" id="3_8qdv8"]
+[ext_resource type="PackedScene" uid="uid://brb12nc8jrl7n" path="res://build_wheel.tscn" id="3_1i8jf"]
+[ext_resource type="Script" uid="uid://cvf7oxp5rtlx8" path="res://scripts/ui.gd" id="3_8qdv8"]
 [ext_resource type="PackedScene" uid="uid://cyj8gv021qawj" path="res://scenes/bubble.tscn" id="3_rca61"]
-[ext_resource type="Script" uid="uid://bni1p74rjgw5x" path="res://scripts/BuildWheel.gd" id="3_svpld"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rca61"]
 texture = ExtResource("2_kinr6")
@@ -132,12 +132,11 @@ script = ExtResource("1_1i8jf")
 [node name="Player" parent="BattleManager" instance=ExtResource("1_idkgt")]
 position = Vector2(-57, -2)
 
-[node name="BuildWheel" type="Control" parent="BattleManager/Player"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_svpld")
+[node name="BuildWheel" parent="BattleManager/Player" instance=ExtResource("3_1i8jf")]
+offset_left = -93.0
+offset_top = -96.0
+offset_right = 207.0
+offset_bottom = 104.0
 
 [node name="Opponent" parent="BattleManager" instance=ExtResource("1_idkgt")]
 position = Vector2(87, 2)

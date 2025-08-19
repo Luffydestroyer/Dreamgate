@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://brb12nc8jrl7n"]
+
+[ext_resource type="Shader" uid="uid://v7o06ivqsm8v" path="res://d.gdshader" id="1_dx8sa"]
+[ext_resource type="Script" uid="uid://bni1p74rjgw5x" path="res://scripts/BuildWheel.gd" id="2_hv13v"]
+[ext_resource type="Script" uid="uid://cuylium7iriwu" path="res://scripts/BaseOptions.gd" id="3_rrhy3"]
+[ext_resource type="Script" uid="uid://cd8lrgixos4ey" path="res://scripts/ModifierOptions.gd" id="4_rftm7"]
+[ext_resource type="Script" uid="uid://nso2f8mkb811" path="res://scripts/StyleOptions.gd" id="5_51nr7"]
+[ext_resource type="Script" uid="uid://4snm3dgbo3yk" path="res://scripts/CostLabel.gd" id="6_d6npt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tttxe"]
+shader = ExtResource("1_dx8sa")
+
+[sub_resource type="Gradient" id="Gradient_dx8sa"]
+offsets = PackedFloat32Array(0, 0.409091, 0.772727, 1)
+colors = PackedColorArray(0.533037, 0.533037, 0.533037, 1, 0.800491, 0.800491, 0.800491, 1, 0.577008, 0.577008, 0.577008, 1, 0.65834, 0.65834, 0.65834, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hv13v"]
+gradient = SubResource("Gradient_dx8sa")
+fill_to = Vector2(0.862385, 0.917431)
+
+[sub_resource type="SystemFont" id="SystemFont_bg0yk"]
+subpixel_positioning = 0
+msdf_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_yt3ua"]
+font = SubResource("SystemFont_bg0yk")
+font_size = 11
+outline_size = 3
+outline_color = Color(1, 1, 0, 1)
+
+[node name="BuildWheel" type="Control"]
+material = SubResource("ShaderMaterial_tttxe")
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.0
+offset_top = -136.0
+offset_right = 86.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hv13v")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource("GradientTexture2D_hv13v")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BaseOptions" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 4.0
+offset_right = 82.0
+offset_bottom = 25.0
+script = ExtResource("3_rrhy3")
+
+[node name="ModifierOptions" type="GridContainer" parent="."]
+modulate = Color(1, 1, 0, 1)
+self_modulate = Color(1, 0.0745098, 1, 1)
+layout_mode = 0
+offset_left = -9.0
+offset_top = -41.0
+offset_right = 31.0
+offset_bottom = -1.0
+columns = 4
+script = ExtResource("4_rftm7")
+
+[node name="StyleOptions" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344671
+anchor_top = 0.0547946
+anchor_right = 0.970655
+anchor_bottom = 0.806207
+offset_bottom = 2.0
+script = ExtResource("5_51nr7")
+metadata/_edit_use_anchors_ = true
+
+[node name="CostLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 24.0
+offset_right = 69.0
+offset_bottom = 40.0
+text = "my nuts"
+label_settings = SubResource("LabelSettings_yt3ua")
+script = ExtResource("6_d6npt")
+
+[node name="Confirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 45.0
+offset_right = 32.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 9
+text = "yes"
+
+[node name="Cancel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 46.0
+offset_right = 69.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 9
+text = "no"
