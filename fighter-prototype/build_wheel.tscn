@@ -1,22 +1,45 @@
-[gd_scene load_steps=12 format=3 uid="uid://brb12nc8jrl7n"]
+[gd_scene load_steps=20 format=3 uid="uid://brb12nc8jrl7n"]
 
 [ext_resource type="Shader" uid="uid://v7o06ivqsm8v" path="res://d.gdshader" id="1_dx8sa"]
 [ext_resource type="Script" uid="uid://bni1p74rjgw5x" path="res://scripts/BuildWheel.gd" id="2_hv13v"]
+[ext_resource type="Texture2D" uid="uid://bf2rwrobxmatl" path="res://assets/sprites/ui/CONSTRUCT-BASE-Sheet.png" id="3_hv13v"]
 [ext_resource type="Script" uid="uid://cuylium7iriwu" path="res://scripts/BaseOptions.gd" id="3_rrhy3"]
 [ext_resource type="Script" uid="uid://cd8lrgixos4ey" path="res://scripts/ModifierOptions.gd" id="4_rftm7"]
 [ext_resource type="Script" uid="uid://nso2f8mkb811" path="res://scripts/StyleOptions.gd" id="5_51nr7"]
 [ext_resource type="Script" uid="uid://4snm3dgbo3yk" path="res://scripts/CostLabel.gd" id="6_d6npt"]
+[ext_resource type="Texture2D" uid="uid://rsbtyyqrcwiw" path="res://assets/sprites/ui/Done_Button-Sheet.png" id="8_rrhy3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tttxe"]
 shader = ExtResource("1_dx8sa")
 
-[sub_resource type="Gradient" id="Gradient_dx8sa"]
-offsets = PackedFloat32Array(0, 0.409091, 0.772727, 1)
-colors = PackedColorArray(0.533037, 0.533037, 0.533037, 1, 0.800491, 0.800491, 0.800491, 1, 0.577008, 0.577008, 0.577008, 1, 0.65834, 0.65834, 0.65834, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrhy3"]
+atlas = ExtResource("3_hv13v")
+region = Rect2(0, 0, 384, 216)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hv13v"]
-gradient = SubResource("Gradient_dx8sa")
-fill_to = Vector2(0.862385, 0.917431)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rftm7"]
+atlas = ExtResource("3_hv13v")
+region = Rect2(384, 0, 384, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51nr7"]
+atlas = ExtResource("3_hv13v")
+region = Rect2(768, 0, 384, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d6npt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrhy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rftm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51nr7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SystemFont" id="SystemFont_bg0yk"]
 subpixel_positioning = 0
@@ -27,6 +50,35 @@ font = SubResource("SystemFont_bg0yk")
 font_size = 11
 outline_size = 3
 outline_color = Color(1, 1, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6npt"]
+atlas = ExtResource("8_rrhy3")
+region = Rect2(0, 0, 70, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp63m"]
+atlas = ExtResource("8_rrhy3")
+region = Rect2(70, 0, 70, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4glrn"]
+atlas = ExtResource("8_rrhy3")
+region = Rect2(140, 0, 70, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ox30k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6npt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp63m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4glrn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BuildWheel" type="Control"]
 material = SubResource("ShaderMaterial_tttxe")
@@ -44,13 +96,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_hv13v")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = SubResource("GradientTexture2D_hv13v")
-expand_mode = 1
+[node name="TextureRect" type="AnimatedSprite2D" parent="."]
+position = Vector2(170, 97)
+sprite_frames = SubResource("SpriteFrames_d6npt")
 metadata/_edit_use_anchors_ = true
 
 [node name="BaseOptions" type="Control" parent="."]
@@ -75,38 +123,50 @@ script = ExtResource("4_rftm7")
 [node name="StyleOptions" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.344671
-anchor_top = 0.0547946
-anchor_right = 0.970655
-anchor_bottom = 0.806207
+anchor_left = 0.403333
+anchor_top = 0.015
+anchor_right = 1.02932
+anchor_bottom = 0.766412
 offset_bottom = 2.0
 script = ExtResource("5_51nr7")
 metadata/_edit_use_anchors_ = true
 
 [node name="CostLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 24.0
-offset_right = 69.0
-offset_bottom = 40.0
+offset_left = 296.0
+offset_top = 98.0
+offset_right = 339.0
+offset_bottom = 114.0
 text = "my nuts"
 label_settings = SubResource("LabelSettings_yt3ua")
 script = ExtResource("6_d6npt")
 
-[node name="Confirm" type="Button" parent="."]
+[node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 45.0
-offset_right = 32.0
-offset_bottom = 66.0
+offset_left = 212.0
+offset_top = 148.0
+offset_right = 259.0
+offset_bottom = 178.0
 theme_override_font_sizes/font_size = 9
 text = "yes"
 
-[node name="Cancel" type="Button" parent="."]
+[node name="Back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 46.0
-offset_right = 69.0
-offset_bottom = 67.0
+offset_left = 125.0
+offset_top = 149.0
+offset_right = 173.0
+offset_bottom = 179.0
 theme_override_font_sizes/font_size = 9
 text = "no"
+
+[node name="Done" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 142.0
+offset_right = 343.0
+offset_bottom = 188.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Done"]
+show_behind_parent = true
+position = Vector2(31, 20)
+sprite_frames = SubResource("SpriteFrames_ox30k")

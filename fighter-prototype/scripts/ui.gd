@@ -10,8 +10,8 @@ var done:bool = false
 @onready var momentum_bar = $MomentumBar
 
 func init_ui(player):
-	health_bar.set_value_no_signal(player.max_hp)
-	bp_bar.set_value_no_signal(player.max_bp)
+	#health_bar.set_value_no_signal(player.max_hp)
+	#bp_bar.set_value_no_signal(player.max_bp)
 	momentum_bar
 
 func _process(delta):

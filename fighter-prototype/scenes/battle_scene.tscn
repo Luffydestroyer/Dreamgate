@@ -132,12 +132,6 @@ script = ExtResource("1_1i8jf")
 [node name="Player" parent="BattleManager" instance=ExtResource("1_idkgt")]
 position = Vector2(-57, -2)
 
-[node name="BuildWheel" parent="BattleManager/Player" instance=ExtResource("3_1i8jf")]
-offset_left = -93.0
-offset_top = -96.0
-offset_right = 207.0
-offset_bottom = 104.0
-
 [node name="Opponent" parent="BattleManager" instance=ExtResource("1_idkgt")]
 position = Vector2(87, 2)
 rotation = -3.14159
@@ -156,6 +150,12 @@ tile_set = SubResource("TileSet_8qdv8")
 
 [node name="BattleUI" type="CanvasLayer" parent="."]
 script = ExtResource("3_8qdv8")
+
+[node name="BuildWheel" parent="BattleUI" instance=ExtResource("3_1i8jf")]
+offset_left = -726.0
+offset_top = -422.0
+offset_right = -426.0
+offset_bottom = -222.0
 
 [node name="HealthBar" type="TextureProgressBar" parent="BattleUI"]
 anchors_preset = -1
