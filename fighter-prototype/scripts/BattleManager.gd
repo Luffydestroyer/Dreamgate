@@ -49,7 +49,7 @@ func start_new_turn():
 		combatant.reset_for_new_turn()
 	
 	# Player chooses action via UI
-	ui.show_action_menu()
+	#ui.show_action_menu()
 	
 	# Enemies choose actions
 	for enemy in enemies:

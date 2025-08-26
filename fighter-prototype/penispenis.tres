@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cvp33dhsiv1kw"]
+
+[ext_resource type="Shader" path="res://penispenispenis.gdshader" id="1_cbhlv"]
+
+[resource]
+shader = ExtResource("1_cbhlv")
+shader_parameter/speed = 0.05
+shader_parameter/scale = Vector2(8, 4.5)
+shader_parameter/rotate_speed = 1.1
+shader_parameter/line_width = 0.1
+shader_parameter/line_size = 0.1
+shader_parameter/back_color = Color(0, 0, 0, 1)
+shader_parameter/line_color = Color(0.124901, 0.213673, 0.269556, 1)

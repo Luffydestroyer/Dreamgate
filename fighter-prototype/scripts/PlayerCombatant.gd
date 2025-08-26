@@ -5,9 +5,9 @@ extends Combatant
 func _ready():
 	super._ready()
 	# Connect to UI signals
-	var ui = get_tree().root.find_child("BattleUI", true, false)
-	if ui:
-		ui.action_selected.connect(_on_ui_action_selected)
+	#var ui = get_tree().root.find_child("BattleUI", true, false)
+	#if ui:
+	#	ui.action_selected.connect(_on_ui_action_selected)
 	
 	# Connect build wheel
 	if build_wheel:

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://8cp0g2hsbvgv"]
+
+[ext_resource type="PackedScene" uid="uid://deaadju4b15h1" path="res://MAIN.tscn" id="1_h08wb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(384, 216)
+
+[node name="Node2D" parent="SubViewport" instance=ExtResource("1_h08wb")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bkvcro7epwtqc"]
+[gd_scene load_steps=27 format=4 uid="uid://bkvcro7epwtqc"]
 
 [ext_resource type="Script" uid="uid://cdv22yx627o5c" path="res://scripts/BattleManager.gd" id="1_1i8jf"]
 [ext_resource type="PackedScene" uid="uid://vfytlswwyoc" path="res://scenes/fighting_player.tscn" id="1_idkgt"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://brb12nc8jrl7n" path="res://build_wheel.tscn" id="3_1i8jf"]
 [ext_resource type="Script" uid="uid://cvf7oxp5rtlx8" path="res://scripts/ui.gd" id="3_8qdv8"]
 [ext_resource type="PackedScene" uid="uid://cyj8gv021qawj" path="res://scenes/bubble.tscn" id="3_rca61"]
+[ext_resource type="Material" uid="uid://cvp33dhsiv1kw" path="res://penispenis.tres" id="3_svpld"]
+
+[sub_resource type="Gradient" id="Gradient_rum4d"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3oc74"]
+gradient = SubResource("Gradient_rum4d")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rca61"]
 texture = ExtResource("2_kinr6")
@@ -131,6 +137,7 @@ script = ExtResource("1_1i8jf")
 
 [node name="Player" parent="BattleManager" instance=ExtResource("1_idkgt")]
 position = Vector2(-57, -2)
+script = null
 
 [node name="Opponent" parent="BattleManager" instance=ExtResource("1_idkgt")]
 position = Vector2(87, 2)
@@ -140,6 +147,12 @@ script = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("3_svpld")
+position = Vector2(-2.49999, -1.5)
+scale = Vector2(6.04688, 3.39063)
+texture = SubResource("GradientTexture2D_3oc74")
 
 [node name="Layer1" type="TileMapLayer" parent="."]
 visible = false
@@ -209,7 +222,6 @@ texture_over = SubResource("PlaceholderTexture2D_j0cvo")
 texture_progress = SubResource("GradientTexture2D_7mjbx")
 
 [node name="ActionMenu" type="Control" parent="BattleUI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

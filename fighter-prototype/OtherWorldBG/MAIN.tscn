@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://deaadju4b15h1"]
+
+[ext_resource type="Shader" uid="uid://dsisl75bl5ljo" path="res://bg.gdshader" id="1_3ntax"]
+[ext_resource type="Script" uid="uid://dh654i4rtb28o" path="res://MAIN.gd" id="1_nv3n8"]
+[ext_resource type="Shader" uid="uid://iyqebsapcse3" path="res://bg2.gdshader" id="1_u6175"]
+[ext_resource type="Texture2D" uid="uid://cxl3f01bdvquv" path="res://floor.png" id="2_vsfbc"]
+[ext_resource type="Texture2D" uid="uid://d36oo5hdic8ed" path="res://penis.png" id="3_47slx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivtj1"]
+shader = ExtResource("1_3ntax")
+shader_parameter/speed = 0.05
+shader_parameter/scale = Vector2(11.635, 5.36)
+shader_parameter/rotate_speed = 1.1
+shader_parameter/line_width = 0.066
+shader_parameter/line_size = 0.06
+shader_parameter/back_color = Color(0.0941176, 0.0980392, 0.133333, 1)
+shader_parameter/line_color = Color(0.247059, 0.309804, 0.435294, 0.407843)
+
+[sub_resource type="Gradient" id="Gradient_1lwoa"]
+offsets = PackedFloat32Array(0, 0.344156, 0.948052, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5w8ph"]
+gradient = SubResource("Gradient_1lwoa")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mcxg0"]
+shader = ExtResource("1_u6175")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
+
+[sub_resource type="Gradient" id="Gradient_o43ou"]
+colors = PackedColorArray(0, 0, 0, 1, 0.645343, 0.827962, 0.845002, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_aud0r"]
+noise_type = 2
+frequency = 0.0061
+cellular_distance_function = 2
+domain_warp_enabled = true
+domain_warp_amplitude = 33.09
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ukm1e"]
+color_ramp = SubResource("Gradient_o43ou")
+noise = SubResource("FastNoiseLite_aud0r")
+
+[sub_resource type="Gradient" id="Gradient_ao1bj"]
+colors = PackedColorArray(0.0941176, 0.0980392, 0.133333, 1, 0.0941176, 0.0980392, 0.133333, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tm5h3"]
+gradient = SubResource("Gradient_ao1bj")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nv3n8")
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ivtj1")
+position = Vector2(205, 110)
+scale = Vector2(6.52857, 5.50626)
+texture = SubResource("GradientTexture2D_5w8ph")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_mcxg0")
+position = Vector2(421, 76)
+rotation = -1.5708
+scale = Vector2(1.32468, 2.16455)
+texture = SubResource("NoiseTexture2D_ukm1e")
+
+[node name="Gradied" type="Sprite2D" parent="."]
+position = Vector2(192, 62.74)
+scale = Vector2(5.78125, 2.08562)
+texture = SubResource("GradientTexture2D_tm5h3")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(192, 108)
+texture = ExtResource("2_vsfbc")
+
+[node name="Penis" type="Sprite2D" parent="."]
+position = Vector2(192, 108)
+texture = ExtResource("3_47slx")

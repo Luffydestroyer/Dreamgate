@@ -17,6 +17,18 @@ var in_burnout := false
 var status_effects = {}
 var current_action = null
 
+var bp_max
+var speed
+var weight
+var hitbox
+var airborne: bool
+
+var PPH = preload("res://scripts/playerposhandler.gd").new()
+
+@onready var anim = $AnimatedSprite2D
+
+@export var fighter: String = "Ren"
+
 func _ready():
 	hp = max_hp
 	bp = max_bp
@@ -154,3 +166,14 @@ func play_animation(anim_name: String):
 	# tbd
 	# $AnimationPlayer.play(anim_name)
 	pass
+	
+func get_x():
+	return self.position.x
+
+func get_y():
+	return self.position.y
+
+func _on_animated_sprite_2d_animation_finished():
+	if anim.animation != "idle":
+			anim.play("idle")
+			print("uhj")
