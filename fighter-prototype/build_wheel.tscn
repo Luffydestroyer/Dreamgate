@@ -1,12 +1,12 @@
 [gd_scene load_steps=20 format=3 uid="uid://brb12nc8jrl7n"]
 
 [ext_resource type="Shader" uid="uid://v7o06ivqsm8v" path="res://d.gdshader" id="1_dx8sa"]
-[ext_resource type="Script" uid="uid://bni1p74rjgw5x" path="res://scripts/BuildWheel.gd" id="2_hv13v"]
+[ext_resource type="Script" uid="uid://bni1p74rjgw5x" path="res://unused/BuildWheel.gd" id="2_hv13v"]
 [ext_resource type="Texture2D" uid="uid://bf2rwrobxmatl" path="res://assets/sprites/ui/CONSTRUCT-BASE-Sheet.png" id="3_hv13v"]
-[ext_resource type="Script" uid="uid://cuylium7iriwu" path="res://scripts/BaseOptions.gd" id="3_rrhy3"]
-[ext_resource type="Script" uid="uid://cd8lrgixos4ey" path="res://scripts/ModifierOptions.gd" id="4_rftm7"]
-[ext_resource type="Script" uid="uid://nso2f8mkb811" path="res://scripts/StyleOptions.gd" id="5_51nr7"]
-[ext_resource type="Script" uid="uid://4snm3dgbo3yk" path="res://scripts/CostLabel.gd" id="6_d6npt"]
+[ext_resource type="Script" uid="uid://cuylium7iriwu" path="res://unused/BaseOptions.gd" id="3_rrhy3"]
+[ext_resource type="Script" uid="uid://cd8lrgixos4ey" path="res://unused/ModifierOptions.gd" id="4_rftm7"]
+[ext_resource type="Script" uid="uid://nso2f8mkb811" path="res://unused/StyleOptions.gd" id="5_51nr7"]
+[ext_resource type="Script" uid="uid://4snm3dgbo3yk" path="res://unused/CostLabel.gd" id="6_d6npt"]
 [ext_resource type="Texture2D" uid="uid://rsbtyyqrcwiw" path="res://assets/sprites/ui/Done_Button-Sheet.png" id="8_rrhy3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tttxe"]

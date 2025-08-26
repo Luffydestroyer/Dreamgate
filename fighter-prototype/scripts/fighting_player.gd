@@ -4,7 +4,7 @@ var hp
 var max_hp
 var bp
 var bp_max
-var speed
+var speed: float = 2.5
 var momentum
 var weight
 var hitbox
@@ -41,6 +41,20 @@ func _process(delta):
 		anim.play("kick")
 	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
+	if Input.is_action_pressed("left"):
+		anim.flip_h = true
+		anim.play("run")
+		self.position.x = self.position.x - speed
+		if anim.animation_finished and anim.name == "run":
+			anim.play("run_loop")
+	if Input.is_action_pressed("right"):
+		anim.flip_h = false
+		anim.play("run")
+		self.position.x = self.position.x + speed
+		if anim.animation_finished and anim.name == "run":
+			anim.play("run_loop")
+	if Input.is_action_just_pressed("up"):
+		anim.play("jump")
 	
 	move_and_slide()
 
