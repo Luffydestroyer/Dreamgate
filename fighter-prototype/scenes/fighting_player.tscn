@@ -426,21 +426,6 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="Animation" id="Animation_1m1jw"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.3, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -6), Vector2(0, -6)]
-}
-
 [sub_resource type="Animation" id="Animation_y7fi1"]
 length = 0.001
 tracks/0/type = "value"
@@ -454,6 +439,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1m1jw"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -6), Vector2(0, -6)]
 }
 
 [sub_resource type="Animation" id="Animation_qldse"]
@@ -471,21 +471,6 @@ tracks/0/keys = {
 "values": [Vector2(5, 0), Vector2(5, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_4y4ip"]
-resource_name = "punch_anim_test_offset"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.133333, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(13.5, 0), Vector2(13.5, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_dkdep"]
 resource_name = "punch_anim_test_offset"
 tracks/0/type = "value"
@@ -499,6 +484,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-5, 0), Vector2(-5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4y4ip"]
+resource_name = "punch_anim_test_offset"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.133333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(13.5, 0), Vector2(13.5, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ar25f"]
