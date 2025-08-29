@@ -13,6 +13,7 @@ var airborne: bool
 var PPH = preload("res://scripts/playerposhandler.gd").new()
 
 @onready var anim = $AnimatedSprite2D
+@onready var offset = $AnimatedSprite2D/AnimationPlayer
 
 @export var fighter: String = "Ren"
 
@@ -32,6 +33,13 @@ func _process(delta):
 	else:
 		airborne = false
 	
+	var os = anim.animation + "_offset"
+	var flipped = os + "_flipped"
+	if anim.flip_h and offset.has_animation(flipped):
+		offset.play(flipped)
+	elif offset.has_animation(os):
+		offset.play(os)
+
 	
 	if Input.is_action_just_pressed("punch_anim_test"):
 		anim.play("punch_basic")
@@ -39,8 +47,12 @@ func _process(delta):
 		anim.play("punch_heavy")
 	if Input.is_action_just_pressed("kick_anim_test"):
 		anim.play("kick")
+	if Input.is_action_just_pressed("block_anim_test"):
+		anim.play("block")
 	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
 	if Input.is_action_pressed("left"):
 		anim.flip_h = true
 		anim.play("run")
@@ -53,8 +65,11 @@ func _process(delta):
 		self.position.x = self.position.x + speed
 		if anim.animation_finished and anim.name == "run":
 			anim.play("run_loop")
+	if Input.is_action_just_released("left") or Input.is_action_just_released("right"):
+		anim.play("idle")
 	if Input.is_action_just_pressed("up"):
 		anim.play("jump")
+	
 	
 	move_and_slide()
 
@@ -71,5 +86,6 @@ func get_y():
 
 func _on_animated_sprite_2d_animation_finished():
 	if anim.animation != "idle":
-			anim.play("idle")
-			print("uhj")
+		anim.play("idle")
+		offset.play("RESET")
+		print("uhj")
