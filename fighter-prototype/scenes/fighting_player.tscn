@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://vfytlswwyoc"]
+[gd_scene load_steps=73 format=3 uid="uid://vfytlswwyoc"]
 
 [ext_resource type="Script" uid="uid://cujfdivqmqbop" path="res://scripts/fighting_player.gd" id="1_b72go"]
 [ext_resource type="Texture2D" uid="uid://djsi7ii0c6ptw" path="res://assets/sprites/battle_sprites/placeholder_fighter/Idle-Sheet.png" id="2_idc24"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cnrhl35j4crxs" path="res://assets/sprites/battle_sprites/placeholder_fighter/Punch-Heavy-Sheet.png" id="4_16xs5"]
 [ext_resource type="Texture2D" uid="uid://dje73ma1lrb5v" path="res://assets/sprites/battle_sprites/placeholder_fighter/Kick-Sheet.png" id="4_b72go"]
 [ext_resource type="Texture2D" uid="uid://bjcx51tp16jj0" path="res://assets/sprites/battle_sprites/placeholder_fighter/Run-Sheet.png" id="7_y7fi1"]
+[ext_resource type="Script" uid="uid://d0l014n1smleh" path="res://scripts/anims.gd" id="9_4y4ip"]
+[ext_resource type="Texture2D" uid="uid://xe2fqnwf3utg" path="res://assets/sprites/battle_sprites/placeholder_fighter/Anims-Sheet.png" id="10_dkdep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idc24"]
 size = Vector2(27, 34)
@@ -535,6 +537,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_idc24")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_1m1jw")
 animation = &"block"
 
@@ -543,5 +546,13 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_4y4ip")
 }
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("9_4y4ip")
+texture = ExtResource("10_dkdep")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
