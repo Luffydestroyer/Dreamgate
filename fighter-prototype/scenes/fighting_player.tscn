@@ -552,6 +552,9 @@ script = ExtResource("9_4y4ip")
 texture = ExtResource("10_dkdep")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("10_dkdep")
+region_enabled = true
+region_filter_clip_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 

@@ -19,19 +19,26 @@ class AnimationData:
 @export var texture: Texture2D
 var json_data: Dictionary
 var animations: Array = []
+signal animation_finished(anim_name)
 
 func _ready():
-	# Load resources (set these in the Inspector)
-	if texture == null:
-		push_error("Texture not set!")
+	# Configure the sprite
+	if texture:
+		sprite.texture = texture
+		sprite.region_enabled = true
+	
+	# Load JSON data
+	var json_file = FileAccess.open("res://assets/sprites/battle_sprites/placeholder_fighter/Anims.json", FileAccess.READ)
+	if json_file:
+		var json_text = json_file.get_as_text()
+		json_data = JSON.parse_string(json_text)
+		json_file.close()
+	else:
+		push_error("Failed to open JSON file!")
 		return
 	
-	var json_file = FileAccess.open("res://assets/sprites/battle_sprites/placeholder_fighter/Anims.json", FileAccess.READ)
-	var json_text = json_file.get_as_text()
-	json_data = JSON.parse_string(json_text)
-	
 	if json_data.is_empty():
-		push_error("JSON data not set!")
+		push_error("JSON data is empty!")
 		return
 	
 	# Parse the JSON data
@@ -40,9 +47,14 @@ func _ready():
 	# Create animations
 	create_animations()
 	
+	animation_player.connect("animation_finished", _on_animation_finished)
+	
 	# Play the first animation if available
 	if animations.size() > 0:
 		play_animation(animations[0].name)
+
+func _on_animation_finished(anim_name):
+	emit_signal("animation_finished", anim_name)
 
 # Parse the JSON data into usable structures
 func parse_json_data():
@@ -102,20 +114,20 @@ func create_animations():
 		
 		# Add animation to library
 		library.add_animation(anim_data.name, animation)
-		print(anim_data.name)
+		print("Added animation: ", anim_data.name)
 	
 	# Add the library to the animation player
 	animation_player.add_animation_library("", library)
-
+	print("Number of animations: ", animations.size())
 
 # Play a specific animation by name
 func play_animation(anim_name: String):
 	if animation_player.has_animation(anim_name):
 		animation_player.play(anim_name)
+		print("Playing animation: ", anim_name)
 	else:
 		push_error("Animation not found: " + anim_name)
 
 # Called every frame
 func _process(_delta):
-	# You can add input handling here to switch animations
 	pass

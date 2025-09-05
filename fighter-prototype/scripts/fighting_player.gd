@@ -21,6 +21,8 @@ var PPH = preload("res://scripts/playerposhandler.gd").new()
 func _ready():
 	anim.play_animation("Idle")
 	PPH = get_node("/root/PPH")
+	anim.connect("animation_finished", _on_anim_animation_finished)
+
 
 
 func _process(delta):
@@ -87,3 +89,8 @@ func _on_animated_sprite_2d_animation_finished():
 		anim.play_animation("Idle")
 		#offset.play("RESET")
 		print("uhj")
+
+func _on_anim_animation_finished(anim_name):
+	print("Animation finished: ", anim_name)
+	#if anim_name != "Idle":
+	anim.play_animation("Idle")
